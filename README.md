@@ -1,2 +1,2 @@
-# JS
-Small JavaScript projects and snippets
+# Intermediate JavaScript Class
+Small JavaScript projects and snippets from classwork
