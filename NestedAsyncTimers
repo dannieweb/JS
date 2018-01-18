@@ -1,0 +1,42 @@
+//Asynchonous excercise
+//Nest timers to execute in specific order
+
+//start with x equals 1
+//this is read first
+var x = 1
+
+//log original value of x to console
+//this is read second
+console.log("x is originally " + x)
+
+//Change the value of x after 3 milliseconds
+//a 3 second timer starts before this function will run,
+//continue on to the rest of the program
+setTimeout( function() {
+  x = 99
+  //console log value of x during this delayed function
+  console.log("x has been changed, and is now " + x)
+  //nested functions are forced to execute in order
+  //second nested function will happen after first
+  setTimeout( function() {
+    x = 42
+    //console log value of x during this delayed function
+    console.log("x has been changed again, and is now " + x)
+    //this nested function will happen last, of these 3 functions
+    setTimeout( function() {
+      x = 1000000
+      //console log value of x during this delayed function
+      console.log("x has been changed one last time, and is now " + x)
+    }, 3000)
+  }, 3000)
+}, 3000)
+
+//this runs third
+//log the value of x at the end of the entire program
+console.log("x is " + x)
+
+//3 second timer finishes last
+//value of x is changed to 99
+//new value of x is console logged
+
+//end program
